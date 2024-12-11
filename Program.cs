@@ -7,7 +7,7 @@
     var server = new Server(port);
 
     Console.WriteLine("The server is running");
-    Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/index.html");
+    Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/signup.html");
 
     while (true)
     {
@@ -30,10 +30,15 @@
       {
         try
         {
-          /*──────────────────────────────────╮
-          │ Handle your custome requests here │
-          ╰──────────────────────────────────*/
-          response.SetStatusCode(405);
+          if (request.Path == "signup")
+          {
+            (string username, string password) = request.GetBody<(string, string)>();
+            
+          }
+          else
+          {
+            response.SetStatusCode(405);
+          }
         }
         catch (Exception exception)
         {
