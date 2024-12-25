@@ -2,17 +2,34 @@
 <html>
 
 <head>
+  <style>
+    #container {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>LOGIN</h1>
-  Username: <input id="usernameInput">
-  <br>
-  password: <input id="passwordInput">
-  <br>
-  <button id="loginButton">log in</button>
-
-  <script type="module" src="login.js"></script>
+  <div id="container">
+    <table>
+      <tr>
+        <td><h1>LOGIN</h1></td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><input id="usernameInput"></td>
+      </tr>
+      <tr>
+        <td>password:</td> 
+        <td><input id="passwordInput"></td>
+      </tr>
+      <tr>
+        <td><button id="loginButton">log in</button></td>
+        <td><script type="module" src="login.js"></script></td> 
+      </tr>
+    </table>
+  </div>
 </body>
 
 </html>

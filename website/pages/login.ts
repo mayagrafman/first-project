@@ -1,9 +1,14 @@
 import { send } from "../utilities";
 
-let welcomeDiv = document.getElementById("welcomeDiv") as HTMLDivElement;
+let usernameInput = document.getElementById("usernameInput")! as HTMLInputElement;
+let passwordInput = document.getElementById("passwordInput")! as HTMLInputElement;
+let loginButton = document.getElementById("loginButton")! as HTMLButtonElement;
 
-if(localStorage.getItem("userId") !=null){
-let username =await send("getUsername", localStorage.getItem("userId")) as string;
-
-welcomeDiv.innerText = "welcome " + username +"!";
+loginButton.onclick = async function() {
+   let [userfound, userId] = await send("login", [usernameInput.value, passwordInput.value]) as [boolean,string];
+   console.log("user found:" + userfound)
+   location.href="signup.html"
+if(userfound){
+   localStorage.setItem("userId", userId);
+}
 }

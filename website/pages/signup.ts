@@ -6,4 +6,5 @@ let signupButton = document.getElementById("signupButton")! as HTMLButtonElement
 
 signupButton.onclick = function () {
     send("signup",[usernameInput.value, passwordInput.value]);
+    
 }
