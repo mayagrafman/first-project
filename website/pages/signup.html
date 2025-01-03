@@ -8,6 +8,13 @@
       display: flex;
       justify-content: center;
     }
+
+    #message {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+      text-align: right;
+    }
   </style>
 </head>
 
@@ -15,22 +22,27 @@
   <div id="center">
     <table>
       <tr>
-    <td><h1>SIGN UP</h1></td>
-  </tr>
-  <tr>
-    <td>Username:</td>
-    <td><input id="usernameInput"></td> 
-  </tr>
-  <tr>
-    <td>Password:</td> 
-    <td><input id="passwordInput"></td>
-  </tr>
-  <tr>
-    <td><button id="signupButton">Sign up</button></td>
-    <td><script type="module" src="signup.js"></script></td>
-  </tr>
-  </table>
+        <td><h1>SIGN UP</h1></td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><input id="usernameInput" type="text" placeholder="Enter your username"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input id="passwordInput" type="password" placeholder="Enter your password"></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <button id="signupButton">Sign up</button>
+        </td>
+      </tr>
+    </table>
   </div>
+
+  <div id="message"></div>
+
+  <script type="module" src="signup.js"></script>
 </body>
 
 </html>
