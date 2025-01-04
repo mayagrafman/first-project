@@ -1,48 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Main Page</title>
-  <style>
-    #center {
-      display: flex;
-      justify-content: center;
-    }
-
-    #message {
-      color: red;
-      font-size: 14px;
-      margin-top: 10px;
-      text-align: right;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div id="center">
-    <table>
-      <tr>
-        <td><h1>SIGN UP</h1></td>
-      </tr>
-      <tr>
-        <td>Username:</td>
-        <td><input id="usernameInput" type="text" placeholder="Enter your username"></td>
-      </tr>
-      <tr>
-        <td>Password:</td>
-        <td><input id="passwordInput" type="password" placeholder="Enter your password"></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="text-align: center;">
-          <button id="signupButton">Sign up</button>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <div id="message"></div>
-
-  <script type="module" src="signup.js"></script>
+    <div id="signup-page">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <label for="signup-username">Username</label>
+            <input type="text" id="signup-username" required>
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+    <script src="signup.js" type="module"></script>
 </body>
-
 </html>

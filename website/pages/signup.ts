@@ -1,18 +1,17 @@
-import { send } from "../utilities";
+const signupForm = document.getElementById('signup-form') as HTMLFormElement;
 
-let usernameInput = document.getElementById("usernameInput")! as HTMLInputElement;
-let passwordInput = document.getElementById("passwordInput")! as HTMLInputElement;
-let signupButton = document.getElementById("signupButton")! as HTMLButtonElement;
-let messageDiv = document.getElementById("message")! as HTMLDivElement;
+signupForm.addEventListener('submit', (event: Event) => {
+    event.preventDefault();
 
-signupButton.onclick = async function () {
-    try {
-        const response = await send("signup", [usernameInput.value, passwordInput.value]);
-        
-        messageDiv.textContent = "Signup completed successfully!";
-        messageDiv.style.color = "green";
-    } catch (error) {
-        messageDiv.textContent = "Signup failed. Please try again.";
-        messageDiv.style.color = "red";
+    const username = (document.getElementById('signup-username') as HTMLInputElement).value;
+    const password = (document.getElementById('signup-password') as HTMLInputElement).value;
+
+    if (username && password) {
+        localStorage.setItem(username, password);
+        alert('Sign up successful!');
+        signupForm.reset();
+        location.href = 'myapp.html';
+    } else {
+        alert('Please fill in all fields.');
     }
-};
+});

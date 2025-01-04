@@ -1,35 +1,24 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <style>
-    #container {
-      display: flex;
-      justify-content: center;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="container">
-    <table>
-      <tr>
-        <td><h1>LOGIN</h1></td>
-      </tr>
-      <tr>
-        <td>Username:</td>
-        <td><input id="usernameInput" type="text" placeholder="Enter your username"></td>
-      </tr>
-      <tr>
-        <td>password:</td> 
-        <td><input id="passwordInput" type="password" placeholder="Enter your password"></td>
-      </tr>
-      <tr>
-        <td><button id="loginButton">log in</button></td>
-        <td><script type="module" src="login.js"></script></td> 
-      </tr>
-    </table>
-  </div>
-</body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="login-page">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" placeholder="Enter your username" required>
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required>
+        <a href="signup.html">Don't have an account yet?</a>
+        <button type="submit">Login</button>
+      </form>
+      <p id="login-message"></p>
+    </div>
+    <script src="login.js" type="module"></script>
+  </body>
 </html>
