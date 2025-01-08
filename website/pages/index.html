@@ -4,21 +4,50 @@
 <head>
   <title>Main Page</title>
   <style>
-    #d {
-      color:rgb(56, 195, 174);
+    body {
+      background-image: url('https://did.li/Xd2CN');
+      background-attachment: fixed;  
+      background-size: cover;
     }
-    .b {
+    #header {
+      display: flex;
+      justify-content: center;
+      color: rgb(255, 240, 240);
       font-size: 50px;
+    }
+    #button1 {
+      width: 100px;
+      height: 50px;
+      position: absolute;
+      top: 300px;
+      left: 550px;
+      cursor: pointer;
+      margin:50px auto;
+      border-radius:10px;
+      background-color: pink;
+    }
+    #button2 {
+      width: 100px;
+      height: 50px;
+      position: absolute;
+      top: 300px;
+      left: 850px;
+      cursor: pointer;
+      margin:50px auto;
+      border-radius:10px;
+      background-color: pink;
     }
   </style>
 </head>
 
 <body>
-  <h1 id = "d">welcome to my website</h1>
+  
+  <h1 id="header" style="font-family:Arial, Helvetica, sans-serif;">Welcome to my website</h1>
    
-  <a href="login.html" class="b">login</a>
+  <button id="button1" onclick="location.href='login.html'">Login</button>
+
   <br>
-  <a href="signup.html" class="b">signup</a>
+  <button id="button2" onclick="location.href='signup.html'">Sign Up</button>
 
   <div id="modul" src="index.js"></div>
   

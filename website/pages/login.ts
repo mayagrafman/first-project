@@ -1,14 +1,21 @@
-import { send } from "../utilities";
+const loginForm = document.getElementById('login-form') as HTMLFormElement;
+const loginMessage = document.getElementById('login-message') as HTMLParagraphElement;
 
-let usernameInput = document.getElementById("usernameInput")! as HTMLInputElement;
-let passwordInput = document.getElementById("passwordInput")! as HTMLInputElement;
-let loginButton = document.getElementById("loginButton")! as HTMLButtonElement;
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-loginButton.onclick = async function() {
-   let [userfound, userId] = await send("login", [usernameInput.value, passwordInput.value]) as [boolean,string];
-   console.log("user found:" + userfound)
-   location.href="signup.html"
-if(userfound){
-   localStorage.setItem("userId", userId);
-}
-}
+    const username = (document.getElementById('login-username') as HTMLInputElement).value;
+    const password = (document.getElementById('login-password') as HTMLInputElement).value;
+
+    const storedPassword = localStorage.getItem(username);
+
+    if (storedPassword === password) {
+        loginMessage.textContent = 'Login successful';
+        loginMessage.style.color = 'green';
+        loginForm.reset();
+        location.href = 'myapp.html';
+    } else {
+        loginMessage.textContent = 'Invalid username or password !';
+        loginMessage.style.color = 'red';
+    }
+ });
