@@ -57,3 +57,8 @@ textarea {
 a {
     color: black;
 }
+
+.recipe-links{
+    
+    justify-content: center;
+}
