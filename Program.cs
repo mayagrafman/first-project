@@ -57,7 +57,7 @@
            if (username==usernames[0] && password==passwords[0]){
 
             foundUser=true;
-            userId = ids [i];
+            userId = ids [i];;
            }
            }
           
