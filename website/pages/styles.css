@@ -47,13 +47,6 @@ button:hover {
     margin-top: 15px;
 }
 
-textarea {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-a {
-    color: black;
+.recipe-links{
+    justify-content: center;
 }
