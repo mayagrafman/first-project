@@ -47,6 +47,54 @@ button:hover {
     margin-top: 15px;
 }
 
-.recipe-links{
-    justify-content: center;
+#recipes, #favorites {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.recipe {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.recipe img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+}
+
+a img {
+    display: block;
+    border-radius: 5px;
+}
+
+.favorite-checkbox {
+    display: none;
+}
+
+.heart-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background: url('https://did.li/6v2CN') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.favorite-checkbox:checked + .heart-label {
+    background: url('https://did.li/bfQaa') no-repeat center center;
+    background-size: contain;
 }

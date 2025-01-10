@@ -1,0 +1,84 @@
+// Key to store favorites in localStorage
+const FAVORITE_KEY = "favoriteRecipes";
+
+// Utility to load favorites from localStorage
+const loadFavorites = (): string[] => {
+    const favorites = localStorage.getItem(FAVORITE_KEY);
+    return favorites ? JSON.parse(favorites) : [];
+};
+
+// Utility to save favorites to localStorage
+const saveFavorites = (favorites: string[]): void => {
+    localStorage.setItem(FAVORITE_KEY, JSON.stringify(favorites));
+};
+
+// Update the display of the heart checkboxes
+const updateFavoritesDisplay = (): void => {
+    const favorites = loadFavorites();
+    const recipes = document.querySelectorAll(".recipe");
+
+    recipes.forEach((recipe) => {
+        const id = recipe.getAttribute("data-id");
+        const checkbox = recipe.querySelector(".favorite-checkbox") as HTMLInputElement;
+
+        if (id && checkbox) {
+            checkbox.checked = favorites.includes(id);
+        }
+    });
+
+    // Update the Favorites section
+    const favoritesContainer = document.getElementById("favorites");
+    if (!favoritesContainer) return;
+
+    favoritesContainer.innerHTML = "";
+
+    if (favorites.length === 0) {
+        favoritesContainer.textContent = "No favorite recipes yet!";
+    } else {
+        favorites.forEach((id) => {
+            const recipe = document.querySelector(.recipe[data-id="${id}"]) as HTMLElement;
+
+            if (recipe) {
+                const clone = recipe.cloneNode(true) as HTMLElement;
+                const heart = clone.querySelector(".favorite-checkbox");
+                if (heart) heart.remove(); // Remove the checkbox in the Favorites section
+                favoritesContainer.appendChild(clone);
+            }
+        });
+    }
+};
+
+// Toggle favorite status when a checkbox is clicked
+const toggleFavorite = (id: string, isFavorite: boolean): void => {
+    const favorites = loadFavorites();
+
+    if (isFavorite) {
+        if (!favorites.includes(id)) favorites.push(id);
+    } else {
+        const index = favorites.indexOf(id);
+        if (index !== -1) favorites.splice(index, 1);
+    }
+
+    saveFavorites(favorites);
+    updateFavoritesDisplay();
+};
+
+// Attach event listeners on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const recipes = document.querySelectorAll(".recipe");
+
+    recipes.forEach((recipe) => {
+        const id = recipe.getAttribute("data-id");
+        const checkbox = recipe.querySelector(".favorite-checkbox") as HTMLInputElement;
+
+        if (id && checkbox) {
+            checkbox.addEventListener("change", (event: Event) => {
+                const isChecked = (event.target as HTMLInputElement).checked;
+                toggleFavorite(id, isChecked);
+            });
+        }
+    });
+
+    // Initialize the display
+    updateFavoritesDisplay();
+});
