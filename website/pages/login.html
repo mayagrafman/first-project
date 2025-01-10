@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div id="login-page">
-      <h2>Login</h2>
-      <form id="login-form">
-        <label for="login-username">Username</label>
-        <input type="text" id="login-username" placeholder="Enter your username" required>
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" placeholder="Enter your password" required>
-        <a href="signup.html">Don't have an account yet?</a>
-        <button type="submit">Login</button>
-      </form>
-      <p id="login-message"></p>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="login-page">
+    <h2>Login</h2>
+
+    <div id="login-form">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" placeholder="Enter your username" required>
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="Enter your password" required>
+      <a href="signup.html">Don't have an account yet?</a>
+      <button id="loginButton">Login</button>
     </div>
-    <script src="login.js" type="module"></script>
-  </body>
+
+    <p id="login-message"></p>
+  </div>
+  <script src="login.js" type="module"></script>
+</body>
+
 </html>

@@ -1,21 +1,27 @@
-const loginForm = document.getElementById('login-form') as HTMLFormElement;
-const loginMessage = document.getElementById('login-message') as HTMLParagraphElement;
 
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+import { send } from "../utilities";
 
-    const username = (document.getElementById('login-username') as HTMLInputElement).value;
-    const password = (document.getElementById('login-password') as HTMLInputElement).value;
+let usernameInput = document.getElementById("login-username")! as HTMLInputElement;
+let passwordInput = document.getElementById("login-password")! as HTMLInputElement;
+let loginButton = document.getElementById("loginButton")! as HTMLButtonElement;
+let loginMessage = document.getElementById("login-message")! as HTMLDivElement;
 
-    const storedPassword = localStorage.getItem(username);
+loginButton.onclick = async function () {
 
-    if (storedPassword === password) {
-        loginMessage.textContent = 'Login successful';
+    let [userfound, userId] = await send("login", [usernameInput.value, passwordInput.value]) as [boolean, string];
+
+    console.log("user found:", userfound);
+
+    if (userfound) {
+        localStorage.setItem("userId", userId);
+
         loginMessage.style.color = 'green';
-        loginForm.reset();
+        loginMessage.textContent = 'Login successful!';
         location.href = 'myapp.html';
     } else {
-        loginMessage.textContent = 'Invalid username or password !';
+        loginMessage.textContent = 'Invalid username or password!';
         loginMessage.style.color = 'red';
+        // location.href = "signup.html";
     }
- });
+};
+
